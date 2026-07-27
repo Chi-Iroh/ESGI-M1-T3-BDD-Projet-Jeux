@@ -151,7 +151,7 @@ namespace GamesLibrary
         {
             if (!Finished())
             {
-                throw new Exception("The game isn't finished yet !");
+                throw new GameNotFinishedException();
             }
 
             var score = GetScore();

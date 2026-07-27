@@ -88,10 +88,7 @@ namespace GamesBase.StepDefinitions
                 Assert.IsFalse(_target.Finished());
                 _target.Winner();
                 Assert.Fail("Winner detection should fail !");
-            } catch (Exception e)
-            {
-                Assert.AreEqual(e.Message, "The game isn't finished yet !");
-            }
+            } catch (GameNotFinishedException) {}
         }
 
         #endregion
