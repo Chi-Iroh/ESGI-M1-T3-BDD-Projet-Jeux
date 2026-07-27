@@ -2,7 +2,7 @@ Feature: TicTacToe
 
 TicTacToe game
 
-Scenario: Simple mov
+Scenario: Simple move
     Given an empty game state
     And x is about to play
     When the player plays at the top left
