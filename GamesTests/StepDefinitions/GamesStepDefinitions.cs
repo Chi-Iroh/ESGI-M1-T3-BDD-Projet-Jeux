@@ -11,6 +11,7 @@ namespace GamesBase.StepDefinitions
         private IGame _target;
         private bool _invalidState = false;
         private bool _invalidPlayer = false;
+        private bool _invalidMove = false;
 
         public GamesStepDefinitions(FeatureContext featureContext)
         {
@@ -63,7 +64,13 @@ namespace GamesBase.StepDefinitions
         [When("the player plays (.*)")]
         void WhenPlays(string move)
         {
-            _target.Play(move);
+            _invalidMove = false;
+            try {
+                _target.Play(move);
+            } catch (InvalidMoveException)
+            {
+                _invalidMove = true;
+            }
         }
 
         #endregion
@@ -115,6 +122,12 @@ namespace GamesBase.StepDefinitions
         void ThenThePlayerIsInvalid()
         {
             Assert.IsTrue(_invalidPlayer);
+        }
+
+        [Then("the move is invalid")]
+        void ThenTheMoveIsInvalid()
+        {
+            Assert.IsTrue(_invalidMove);
         }
 
         #endregion

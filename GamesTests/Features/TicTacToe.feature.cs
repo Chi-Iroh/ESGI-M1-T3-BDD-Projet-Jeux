@@ -117,7 +117,7 @@ namespace GamesBase.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/TicTacToe.feature.ndjson", 8);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/TicTacToe.feature.ndjson", 9);
         }
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Simple move")]
@@ -414,10 +414,47 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
     await testRunner.GivenAsync("an empty game state", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 57
-    await testRunner.WhenAsync("abc is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.AndAsync("abc is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 58
     await testRunner.ThenAsync("the player is invalid", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Invalid move")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Invalid move")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "TicTacToe")]
+        public async global::System.Threading.Tasks.Task InvalidMove()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "6";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Invalid move", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 60
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 61
+    await testRunner.GivenAsync("an empty game state", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 62
+    await testRunner.AndAsync("P1 is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 63
+    await testRunner.WhenAsync("the player plays outside the board", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 64
+    await testRunner.ThenAsync("the move is invalid", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

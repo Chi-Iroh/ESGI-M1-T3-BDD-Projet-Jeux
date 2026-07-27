@@ -45,7 +45,12 @@ namespace GamesLibrary
                     } else
                     {
                         try {
-                            _scores[state.headers[j]].Add(int.Parse(move));
+                            int m = int.Parse(move);
+                            if (m < 0)
+                            {
+                                throw new InvalidStateException("Negative score is impossible !");
+                            }
+                            _scores[state.headers[j]].Add(m);
                         } catch (FormatException)
                         {
                             throw new InvalidStateException($"'{move}' isn't a number !");
@@ -85,6 +90,12 @@ namespace GamesLibrary
             }
 
             int m = int.Parse(move);
+
+            if (m < 0)
+            {
+                throw new InvalidMoveException("Negative score is impossible !");
+            }
+
             var moves = this.scores[this.player];
             if (moves.Count != 0 && moves[moves.Count - 1] is null)
             {

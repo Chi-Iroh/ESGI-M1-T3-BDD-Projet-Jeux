@@ -54,6 +54,11 @@ Scenario: Invalid state
 
 Scenario: Invalid player
     Given an empty game state
-    When abc is about to play
+    And abc is about to play
     Then the player is invalid
 
+Scenario: Invalid move
+    Given an empty game state
+    And P1 is about to play
+    When the player plays outside the board
+    Then the move is invalid

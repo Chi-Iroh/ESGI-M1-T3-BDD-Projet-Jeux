@@ -109,13 +109,13 @@ public class TicTacToe : IGame
             (int, int) pos = moves[move];
             if (grid[pos.Item1][pos.Item2] != ' ')
             {
-                throw new InvalidStateException("Cell not empty !");
+                throw new InvalidMoveException("Cell not empty !");
             }
             grid[pos.Item1][pos.Item2] = player;
             this.InvertPlayer();
         } else
         {
-            throw new InvalidStateException("Invalid move !");
+            throw new InvalidMoveException("Invalid move !");
         }
     }
 
