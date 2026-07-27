@@ -24,7 +24,7 @@ namespace GamesLibrary
 
             if (state.content.Count > TURNS)
             {
-                throw new Exception($"Only {TURNS} allowed !");
+                throw new InvalidStateException($"Only {TURNS} allowed !");
             }
 
             var _scores = new Dictionary<string, List<int?>>
@@ -44,7 +44,12 @@ namespace GamesLibrary
                         player = state.headers[j];
                     } else
                     {
-                        _scores[state.headers[j]].Add(int.Parse(move));
+                        try {
+                            _scores[state.headers[j]].Add(int.Parse(move));
+                        } catch (FormatException)
+                        {
+                            throw new InvalidStateException($"'{move}' isn't a number !");
+                        }
                     }
                 }
             }
@@ -62,7 +67,7 @@ namespace GamesLibrary
                 this.player = player;
             } else
             {
-                throw new Exception($"Invalid player {player} !");
+                throw new InvalidPlayerException($"Invalid player {player} !");
             }
         }
 
@@ -138,7 +143,7 @@ namespace GamesLibrary
                 {
                     if (i is null)
                     {
-                        throw new Exception("Game isn't finished !");
+                        throw new GameNotFinishedException();
                     }
                     _score += (int)i;
                 }

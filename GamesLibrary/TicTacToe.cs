@@ -36,7 +36,7 @@ public class TicTacToe : IGame
 
         if (state.content.Count() != 3)
         {
-            throw new Exception("Exactly 3 rows are needed to initialize Tic Tac Toe !");
+            throw new InvalidStateException("Exactly 3 rows are needed to initialize Tic Tac Toe !");
         }
 
         int i = 0;
@@ -44,7 +44,7 @@ public class TicTacToe : IGame
         {
             if (row.Count() != 3)
             {
-                throw new Exception("Exactly 3 columns are needed to initialize Tic Tac Toe !");
+                throw new InvalidStateException("Exactly 3 columns are needed to initialize Tic Tac Toe !");
             }
             for (int j = 0; j < 3; j++)
             {
@@ -58,7 +58,7 @@ public class TicTacToe : IGame
                 }
                 else
                 {
-                    throw new Exception($"Each cell must have only one character, got '{row[j]}' !");
+                    throw new InvalidStateException($"Each cell must have only one character, got '{row[j]}' !");
                 }
             }
             i++;
@@ -75,7 +75,7 @@ public class TicTacToe : IGame
     {
         if (player != "x" && player != "o")
         {
-            throw new Exception("Player must be o or x !");
+            throw new InvalidPlayerException($"Invalid player {player}");
         }
         this.player = player[0];
     }
@@ -84,7 +84,7 @@ public class TicTacToe : IGame
     {
         if (this.player == ' ')
         {
-            throw new Exception("Invalid player !");
+            throw new InvalidPlayerException($"Invalid player '{player}' !");
         }
         this.player = (this.player == 'o') ? 'x' : 'o';
     }
@@ -109,13 +109,13 @@ public class TicTacToe : IGame
             (int, int) pos = moves[move];
             if (grid[pos.Item1][pos.Item2] != ' ')
             {
-                throw new Exception("Cell not empty !");
+                throw new InvalidStateException("Cell not empty !");
             }
             grid[pos.Item1][pos.Item2] = player;
             this.InvertPlayer();
         } else
         {
-            throw new Exception("Invalid move !");
+            throw new InvalidStateException("Invalid move !");
         }
     }
 

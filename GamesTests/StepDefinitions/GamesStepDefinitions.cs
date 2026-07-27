@@ -9,6 +9,8 @@ namespace GamesBase.StepDefinitions
         // For additional details on Reqnroll step definitions see https://go.reqnroll.net/doc-stepdef
 
         private IGame _target;
+        private bool _invalidState = false;
+        private bool _invalidPlayer = false;
 
         public GamesStepDefinitions(FeatureContext featureContext)
         {
@@ -33,13 +35,25 @@ namespace GamesBase.StepDefinitions
         [Given("the following game state")]
         void GivenTheFollowingInitialState(Table table)
         {
-            _target = _target.InitFromState(tableToGameState(table));
+            _invalidState = false;
+            try {
+                _target = _target.InitFromState(tableToGameState(table));
+            } catch (InvalidStateException)
+            {
+                _invalidState = true;
+            }
         }
 
         [Given("(.*) is about to play")]
         void GivenPlayer(string player)
         {
-            _target.SetPlayer(player);
+            _invalidPlayer = false;
+            try {
+                _target.SetPlayer(player);
+            } catch (InvalidPlayerException)
+            {
+                _invalidPlayer = true;
+            }
         }
 
         #endregion
@@ -89,6 +103,18 @@ namespace GamesBase.StepDefinitions
                 _target.Winner();
                 Assert.Fail("Winner detection should fail !");
             } catch (GameNotFinishedException) {}
+        }
+
+        [Then("the state is invalid")]
+        void ThenTheStateIsInvalid()
+        {
+            Assert.IsTrue(_invalidState);
+        }
+
+        [Then("the player is invalid")]
+        void ThenThePlayerIsInvalid()
+        {
+            Assert.IsTrue(_invalidPlayer);
         }
 
         #endregion

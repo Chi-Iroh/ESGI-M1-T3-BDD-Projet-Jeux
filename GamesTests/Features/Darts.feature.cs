@@ -117,7 +117,7 @@ namespace GamesBase.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Darts.feature.ndjson", 6);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Darts.feature.ndjson", 8);
         }
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Simple move")]
@@ -323,6 +323,80 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
 #line 47
     await testRunner.ThenAsync("the winner cannot be determined yet", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Invalid state")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Invalid state")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Darts")]
+        public async global::System.Threading.Tasks.Task InvalidState()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "4";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Invalid state", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 49
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+                global::Reqnroll.Table table6 = new global::Reqnroll.Table(new string[] {
+                            "Z",
+                            "O"});
+                table6.AddRow(new string[] {
+                            "4",
+                            "u"});
+                table6.AddRow(new string[] {
+                            "",
+                            ""});
+#line 50
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table6, "Given ");
+#line hidden
+#line 54
+    await testRunner.ThenAsync("the state is invalid", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Invalid player")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Invalid player")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Darts")]
+        public async global::System.Threading.Tasks.Task InvalidPlayer()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "5";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Invalid player", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 56
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 57
+    await testRunner.GivenAsync("an empty game state", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 58
+    await testRunner.WhenAsync("abc is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 59
+    await testRunner.ThenAsync("the player is invalid", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

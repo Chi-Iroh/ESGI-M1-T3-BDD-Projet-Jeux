@@ -43,3 +43,17 @@ Scenario: Winner fails, game not finished !
         | | | |
         | | | |
     Then the winner cannot be determined yet
+
+Scenario: Invalid state
+    Given the following game state
+        | | | |
+        | r | u | |
+        | | | |
+        | | 145 | |
+    Then the state is invalid
+
+Scenario: Invalid player
+    Given an empty game state
+    When abc is about to play
+    Then the player is invalid
+
