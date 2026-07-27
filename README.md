@@ -4,14 +4,20 @@
 
 ### A- Identification des cas de test
 
-3 tests sont faits :
+3 tests basiques sont faits :
 1. un jeu démarre et un coup est joué
 2. un jeu reprend une partie déjà commencée
 3. on vérifie un gagnant
 
+Puis suivent quelques tests d'erreur :
+1. jeu non terminé, impossible de déterminer le vainqueur
+2. état du jeu invalide
+3. nom du joueur invalide
+4. coup invalide
+
 ### B- Priorisation des scénarios
 
-Ces 3 tests sont basiques et critiques.  
+Les premiers tests sont critiques et vérifient le déroulé d'une partie de jeu, puis les suivants contrôlent la gestion d'erreurs.  
 
 ## II- Architecture et représentation des données
 
