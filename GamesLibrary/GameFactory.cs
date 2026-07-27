@@ -11,8 +11,8 @@ namespace GamesLibrary
                 case "TicTacToe":
                     return new TicTacToe(null);
 
-                /*case "Darts":
-                    return new Darts();*/
+                case "Darts":
+                    return new Darts();
 
                 default:
                     throw new Exception($"{type} game not implemented !");

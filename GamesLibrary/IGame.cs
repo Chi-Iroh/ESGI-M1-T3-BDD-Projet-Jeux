@@ -17,10 +17,10 @@ namespace GamesBase
     public interface IGame
     {
         abstract IGame EmptyInit();
-        abstract IGame InitFromState(GameState table);
+        abstract IGame InitFromState(GameState state);
         abstract void SetPlayer(string player);
         abstract void Play(string move);
-        abstract bool CompareStateWith(GameState table);
+        abstract bool CompareStateWith(GameState state);
         abstract bool Finished();
         abstract bool IsTie();
         abstract string Winner();

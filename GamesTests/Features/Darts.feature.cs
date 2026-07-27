@@ -18,7 +18,7 @@ namespace GamesBase.Features
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "3.0.0.0")]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class TicTacToeFeature
+    public partial class DartsFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
@@ -27,9 +27,9 @@ namespace GamesBase.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "TicTacToe", "TicTacToe game", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Darts", "Darts game", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
-#line 1 "TicTacToe.feature"
+#line 1 "Darts.feature"
 #line hidden
         
         public virtual Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext
@@ -117,12 +117,12 @@ namespace GamesBase.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/TicTacToe.feature.ndjson", 5);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Darts.feature.ndjson", 5);
         }
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Simple move")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Simple move")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "TicTacToe")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Darts")]
         public async global::System.Threading.Tasks.Task SimpleMove()
         {
             string[] tagsOfScenario = ((string[])(null));
@@ -145,31 +145,21 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
     await testRunner.GivenAsync("an empty game state", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 7
-    await testRunner.AndAsync("x is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.AndAsync("P1 is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 8
-    await testRunner.WhenAsync("the player plays at the top left", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("the player plays 20", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-                global::Reqnroll.Table table5 = new global::Reqnroll.Table(new string[] {
-                            "",
-                            "",
-                            ""});
-                table5.AddRow(new string[] {
-                            "x",
-                            "",
-                            ""});
-                table5.AddRow(new string[] {
-                            "",
-                            "",
-                            ""});
-                table5.AddRow(new string[] {
-                            "",
-                            "",
-                            ""});
+                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                            "P1",
+                            "P2"});
+                table1.AddRow(new string[] {
+                            "20",
+                            "-"});
 #line 9
-    await testRunner.ThenAsync("the game state should be", ((string)(null)), table5, "Then ");
+    await testRunner.ThenAsync("the game state should be", ((string)(null)), table1, "Then ");
 #line hidden
-#line 14
+#line 12
     await testRunner.AndAsync("the game isn\'t finished yet", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -178,7 +168,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Initial state")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Initial state")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "TicTacToe")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Darts")]
         public async global::System.Threading.Tasks.Task InitialState()
         {
             string[] tagsOfScenario = ((string[])(null));
@@ -187,7 +177,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Initial state", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 16
+#line 14
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -197,52 +187,56 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table6 = new global::Reqnroll.Table(new string[] {
-                            "",
-                            "",
-                            ""});
-                table6.AddRow(new string[] {
-                            "x",
-                            "x",
-                            "o"});
-                table6.AddRow(new string[] {
-                            "o",
-                            "o",
-                            "x"});
-                table6.AddRow(new string[] {
-                            "x",
-                            "o",
-                            ""});
-#line 17
-    await testRunner.GivenAsync("the following game state", ((string)(null)), table6, "Given ");
+                global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
+                            "P1",
+                            "P2"});
+                table2.AddRow(new string[] {
+                            "0",
+                            "0"});
+                table2.AddRow(new string[] {
+                            "50",
+                            "17"});
+                table2.AddRow(new string[] {
+                            "60",
+                            "57"});
+                table2.AddRow(new string[] {
+                            "4",
+                            "8"});
+                table2.AddRow(new string[] {
+                            "0",
+                            "-"});
+#line 15
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table2, "Given ");
 #line hidden
 #line 22
-    await testRunner.AndAsync("x is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.AndAsync("P2 is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 23
-    await testRunner.WhenAsync("the player plays at the bottom right", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("the player plays 40", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-                global::Reqnroll.Table table7 = new global::Reqnroll.Table(new string[] {
-                            "",
-                            "",
-                            ""});
-                table7.AddRow(new string[] {
-                            "x",
-                            "x",
-                            "o"});
-                table7.AddRow(new string[] {
-                            "o",
-                            "o",
-                            "x"});
-                table7.AddRow(new string[] {
-                            "x",
-                            "o",
-                            "x"});
+                global::Reqnroll.Table table3 = new global::Reqnroll.Table(new string[] {
+                            "P1",
+                            "P2"});
+                table3.AddRow(new string[] {
+                            "0",
+                            "0"});
+                table3.AddRow(new string[] {
+                            "50",
+                            "17"});
+                table3.AddRow(new string[] {
+                            "60",
+                            "57"});
+                table3.AddRow(new string[] {
+                            "4",
+                            "8"});
+                table3.AddRow(new string[] {
+                            "0",
+                            "40"});
 #line 24
-    await testRunner.ThenAsync("the game state should be", ((string)(null)), table7, "Then ");
+    await testRunner.ThenAsync("the game state should be", ((string)(null)), table3, "Then ");
 #line hidden
-#line 29
-    await testRunner.AndAsync("it\'s a tie", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 31
+    await testRunner.AndAsync("the winner should be P2", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -250,7 +244,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Winner")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Winner")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "TicTacToe")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Darts")]
         public async global::System.Threading.Tasks.Task Winner()
         {
             string[] tagsOfScenario = ((string[])(null));
@@ -259,7 +253,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Winner", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 31
+#line 33
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -269,27 +263,17 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table8 = new global::Reqnroll.Table(new string[] {
-                            "",
-                            "",
-                            ""});
-                table8.AddRow(new string[] {
-                            "x",
-                            "o",
-                            "o"});
-                table8.AddRow(new string[] {
-                            "x",
-                            "o",
-                            ""});
-                table8.AddRow(new string[] {
-                            "x",
-                            "",
-                            ""});
-#line 32
-    await testRunner.GivenAsync("the following game state", ((string)(null)), table8, "Given ");
+                global::Reqnroll.Table table4 = new global::Reqnroll.Table(new string[] {
+                            "Alice",
+                            "Bob"});
+                table4.AddRow(new string[] {
+                            "40",
+                            "1"});
+#line 34
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table4, "Given ");
 #line hidden
 #line 37
-    await testRunner.ThenAsync("the winner should be x", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("the winner should be Alice", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
