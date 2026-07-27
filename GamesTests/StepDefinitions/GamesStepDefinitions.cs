@@ -17,7 +17,7 @@ namespace GamesBase.StepDefinitions
             _target = _target.EmptyInit();
         }
 
-        [Given("the following initial state")]
+        [Given("the following game state")]
         void GivenTheFollowingInitialState(Table table)
         {
             _target = _target.InitFromState(table);

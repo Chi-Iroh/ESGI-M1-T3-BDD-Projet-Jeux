@@ -95,6 +95,13 @@ public class TicTacToe : IGame
         var moves = new Dictionary<string, (int, int)>
         {
             { "at the top left", (0, 0) },
+            { "at the top in the center", (0, 1) },
+            { "at the top right", (0, 2) },
+            { "in the center on the left", (1, 0) },
+            { "at the center", (1, 1) },
+            { "in the center on the right", (1, 2) },
+            { "at the bottom on the left", (2, 0) },
+            { "at the bottom in the center", (2, 1) },
             { "at the bottom right", (2, 2) }
         };
 

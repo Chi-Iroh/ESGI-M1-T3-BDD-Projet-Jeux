@@ -233,7 +233,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
                 table3.AddRow(new string[] {
                             "o",
                             "o",
-                            "x"});
+                            ""});
                 table3.AddRow(new string[] {
                             "x",
                             "o",
