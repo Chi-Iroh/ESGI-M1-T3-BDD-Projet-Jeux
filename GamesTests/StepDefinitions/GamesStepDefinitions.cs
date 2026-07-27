@@ -7,7 +7,12 @@ namespace GamesBase.StepDefinitions
     {
         // For additional details on Reqnroll step definitions see https://go.reqnroll.net/doc-stepdef
 
-        private IGame _target = new TicTacToe(null);
+        private IGame _target;
+
+        public GamesStepDefinitions(FeatureContext featureContext)
+        {
+            this._target = GameFactory.Create(featureContext.FeatureInfo.Title);
+        }
 
         #region Given
 
