@@ -1,5 +1,4 @@
 ﻿using GamesBase;
-using Reqnroll;
 
 namespace GamesLibrary;
 
@@ -31,19 +30,19 @@ public class TicTacToe : IGame
         return new TicTacToe(null);
     }
 
-    private static char[][] ReadState(Table table)
+    private static char[][] ReadState(GameState state)
     {
         char[][] grid = EMPTY_GRID;
 
-        if (table.RowCount != 3)
+        if (state.content.Count() != 3)
         {
             throw new Exception("Exactly 3 rows are needed to initialize Tic Tac Toe !");
         }
 
         int i = 0;
-        foreach (DataTableRow row in table.Rows)
+        foreach (List<string> row in state.content)
         {
-            if (row.Count != 3)
+            if (row.Count() != 3)
             {
                 throw new Exception("Exactly 3 columns are needed to initialize Tic Tac Toe !");
             }
@@ -67,9 +66,9 @@ public class TicTacToe : IGame
         return grid;
     }
 
-    public IGame InitFromState(Table table)
+    public IGame InitFromState(GameState state)
     {
-        return new TicTacToe(ReadState(table));
+        return new TicTacToe(ReadState(state));
     }
 
     public void SetPlayer(string player)
@@ -120,9 +119,9 @@ public class TicTacToe : IGame
         }
     }
 
-    public bool CompareStateWith(Table table)
+    public bool CompareStateWith(GameState state)
     {
-        return grid == ReadState(table);
+        return grid == ReadState(state);
     }
 
     private enum WinnerEnum

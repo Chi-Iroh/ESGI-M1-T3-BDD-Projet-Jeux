@@ -14,6 +14,13 @@ namespace GamesBase.StepDefinitions
             this._target = GameFactory.Create(featureContext.FeatureInfo.Title);
         }
 
+        private static GameState tableToGameState(Table table)
+        {
+            List<string> headers = table.Header.ToList();
+            List<List<string>> content = table.Rows.Select(row => row.Values.ToList()).ToList();
+            return new GameState(headers, content);
+        }
+
         #region Given
 
         [Given("an empty game state")]
@@ -25,7 +32,7 @@ namespace GamesBase.StepDefinitions
         [Given("the following game state")]
         void GivenTheFollowingInitialState(Table table)
         {
-            _target = _target.InitFromState(table);
+            _target = _target.InitFromState(tableToGameState(table));
         }
 
         [Given("(.*) is about to play")]
@@ -51,7 +58,7 @@ namespace GamesBase.StepDefinitions
         [Then("the game state should be")]
         void ThenTheGameStateShouldBe(Table table)
         {
-            Assert.IsTrue(_target.CompareStateWith(table));
+            Assert.IsTrue(_target.CompareStateWith(tableToGameState(table)));
         }
 
         [Then("the game isn't finished yet")]
