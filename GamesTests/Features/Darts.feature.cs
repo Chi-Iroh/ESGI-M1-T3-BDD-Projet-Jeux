@@ -117,7 +117,7 @@ namespace GamesBase.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Darts.feature.ndjson", 5);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Darts.feature.ndjson", 6);
         }
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Simple move")]
@@ -267,13 +267,62 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
                             "Alice",
                             "Bob"});
                 table4.AddRow(new string[] {
+                            "10",
+                            "15"});
+                table4.AddRow(new string[] {
+                            "50",
+                            "4"});
+                table4.AddRow(new string[] {
+                            "9",
+                            "19"});
+                table4.AddRow(new string[] {
+                            "1",
+                            "30"});
+                table4.AddRow(new string[] {
                             "40",
                             "1"});
 #line 34
     await testRunner.GivenAsync("the following game state", ((string)(null)), table4, "Given ");
 #line hidden
-#line 37
+#line 41
     await testRunner.ThenAsync("the winner should be Alice", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Winner fails, game not finished !")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Winner fails, game not finished !")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Darts")]
+        public async global::System.Threading.Tasks.Task WinnerFailsGameNotFinished()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "3";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Winner fails, game not finished !", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 43
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+                global::Reqnroll.Table table5 = new global::Reqnroll.Table(new string[] {
+                            "Alice",
+                            "Bob"});
+                table5.AddRow(new string[] {
+                            "40",
+                            "1"});
+#line 44
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table5, "Given ");
+#line hidden
+#line 47
+    await testRunner.ThenAsync("the winner cannot be determined yet", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

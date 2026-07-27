@@ -33,5 +33,15 @@ Scenario: Initial state
 Scenario: Winner
     Given the following game state
         | Alice | Bob |
+        | 10 | 15 |
+        | 50 | 4 |
+        | 9 | 19 |
+        | 1 | 30 |
         | 40 | 1 |
     Then the winner should be Alice
+
+Scenario: Winner fails, game not finished !
+    Given the following game state
+        | Alice | Bob |
+        | 40 | 1 |
+    Then the winner cannot be determined yet

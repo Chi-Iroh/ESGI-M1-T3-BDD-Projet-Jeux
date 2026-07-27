@@ -149,6 +149,11 @@ namespace GamesLibrary
 
         private string? _Winner()
         {
+            if (!Finished())
+            {
+                throw new Exception("The game isn't finished yet !");
+            }
+
             var score = GetScore();
             var max = score.MaxBy(k => k.Value);
             var min = score.MinBy(k => k.Value);

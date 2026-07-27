@@ -80,6 +80,20 @@ namespace GamesBase.StepDefinitions
             Assert.IsTrue(_target.Winner() == winner);
         }
 
+        [Then("the winner cannot be determined yet")]
+        void ThenTheWinnerCannotBeDeterminedYet()
+        {
+            try
+            {
+                Assert.IsFalse(_target.Finished());
+                _target.Winner();
+                Assert.Fail("Winner detection should fail !");
+            } catch (Exception e)
+            {
+                Assert.AreEqual(e.Message, "The game isn't finished yet !");
+            }
+        }
+
         #endregion
     }
 }

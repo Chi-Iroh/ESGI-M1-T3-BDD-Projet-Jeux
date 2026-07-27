@@ -23,6 +23,7 @@ namespace GamesBase
         abstract bool CompareStateWith(GameState state);
         abstract bool Finished();
         abstract bool IsTie();
+        // throws if game hasn't finished
         abstract string Winner();
     }
 }

@@ -185,6 +185,11 @@ public class TicTacToe : IGame
 
     public string Winner()
     {
+        if (!Finished())
+        {
+            throw new Exception("The game isn't finished yet !");
+        }
+
         switch (_Winner())
         {
             case null:

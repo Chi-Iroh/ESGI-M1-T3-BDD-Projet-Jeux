@@ -117,7 +117,7 @@ namespace GamesBase.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/TicTacToe.feature.ndjson", 5);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/TicTacToe.feature.ndjson", 6);
         }
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Simple move")]
@@ -150,24 +150,24 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 8
     await testRunner.WhenAsync("the player plays at the top left", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-                global::Reqnroll.Table table5 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table6 = new global::Reqnroll.Table(new string[] {
                             "",
                             "",
                             ""});
-                table5.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "x",
                             "",
                             ""});
-                table5.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "",
                             "",
                             ""});
-                table5.AddRow(new string[] {
+                table6.AddRow(new string[] {
                             "",
                             "",
                             ""});
 #line 9
-    await testRunner.ThenAsync("the game state should be", ((string)(null)), table5, "Then ");
+    await testRunner.ThenAsync("the game state should be", ((string)(null)), table6, "Then ");
 #line hidden
 #line 14
     await testRunner.AndAsync("the game isn\'t finished yet", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -197,31 +197,6 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table6 = new global::Reqnroll.Table(new string[] {
-                            "",
-                            "",
-                            ""});
-                table6.AddRow(new string[] {
-                            "x",
-                            "x",
-                            "o"});
-                table6.AddRow(new string[] {
-                            "o",
-                            "o",
-                            "x"});
-                table6.AddRow(new string[] {
-                            "x",
-                            "o",
-                            ""});
-#line 17
-    await testRunner.GivenAsync("the following game state", ((string)(null)), table6, "Given ");
-#line hidden
-#line 22
-    await testRunner.AndAsync("x is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 23
-    await testRunner.WhenAsync("the player plays at the bottom right", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
                 global::Reqnroll.Table table7 = new global::Reqnroll.Table(new string[] {
                             "",
                             "",
@@ -237,9 +212,34 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
                 table7.AddRow(new string[] {
                             "x",
                             "o",
+                            ""});
+#line 17
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table7, "Given ");
+#line hidden
+#line 22
+    await testRunner.AndAsync("x is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 23
+    await testRunner.WhenAsync("the player plays at the bottom right", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+                global::Reqnroll.Table table8 = new global::Reqnroll.Table(new string[] {
+                            "",
+                            "",
+                            ""});
+                table8.AddRow(new string[] {
+                            "x",
+                            "x",
+                            "o"});
+                table8.AddRow(new string[] {
+                            "o",
+                            "o",
+                            "x"});
+                table8.AddRow(new string[] {
+                            "x",
+                            "o",
                             "x"});
 #line 24
-    await testRunner.ThenAsync("the game state should be", ((string)(null)), table7, "Then ");
+    await testRunner.ThenAsync("the game state should be", ((string)(null)), table8, "Then ");
 #line hidden
 #line 29
     await testRunner.AndAsync("it\'s a tie", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -269,27 +269,74 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table8 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table9 = new global::Reqnroll.Table(new string[] {
                             "",
                             "",
                             ""});
-                table8.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "x",
                             "o",
                             "o"});
-                table8.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "x",
                             "o",
                             ""});
-                table8.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "x",
                             "",
                             ""});
 #line 32
-    await testRunner.GivenAsync("the following game state", ((string)(null)), table8, "Given ");
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table9, "Given ");
 #line hidden
 #line 37
     await testRunner.ThenAsync("the winner should be x", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Winner fails, game not finished !")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Winner fails, game not finished !")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "TicTacToe")]
+        public async global::System.Threading.Tasks.Task WinnerFailsGameNotFinished()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "3";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Winner fails, game not finished !", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 39
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+                global::Reqnroll.Table table10 = new global::Reqnroll.Table(new string[] {
+                            "",
+                            "",
+                            ""});
+                table10.AddRow(new string[] {
+                            "x",
+                            "",
+                            ""});
+                table10.AddRow(new string[] {
+                            "",
+                            "",
+                            ""});
+                table10.AddRow(new string[] {
+                            "",
+                            "",
+                            ""});
+#line 40
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table10, "Given ");
+#line hidden
+#line 45
+    await testRunner.ThenAsync("the winner cannot be determined yet", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

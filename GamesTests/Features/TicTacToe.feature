@@ -35,3 +35,11 @@ Scenario: Winner
         | x | o | |
         | x | | |
     Then the winner should be x
+
+Scenario: Winner fails, game not finished !
+    Given the following game state
+        | | | |
+        | x | | |
+        | | | |
+        | | | |
+    Then the winner cannot be determined yet
