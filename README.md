@@ -33,7 +33,35 @@ Les données de la table sont passées au jeu, qui sait comment les lire.
 
 L'interface `IGame` regroupe plusieurs fonctions basiques pour contrôler le déroulement d'un jeu tour par tour.  
 On peut ajouter un nouveau jeu similaire sans modifier les step definitions, et on écrira sees tests avec le même vocabulaire que les autres.  
-Pour ajouter un nouveau jeu, il suffit d'ajouter une entrée dan la factory `GameFactory`, qui construit le jeu selon le nom de la `Feature` Gherkin.  
+
+Pour ajouter un nouveau jeu, il suffit d'ajouter une entrée dans la factory `GameFactory`, qui construit le jeu selon le nom de la `Feature` Gherkin.  
+
+Chaque fichier Gherkin commence par `Feature: xxx`...
+```gherkin
+Feature: Darts
+
+Darts game
+
+Scenario: ...
+```
+On peut récupérer cette valeur depuis la classe `StepDefinitions` en lui ajoutant un constructeur prenant en argument des informations sur les features.  
+Grâce à l'injection de dépendances du framework de test, on peut savoir quelle fonctionnalité (ici: quelle classe, puisque chaque feature porte le nom de la classe).  
+En conséquence, il est très simple d'instancier la bonne classe à l'aide d'une factory.
+```csharp
+public sealed class GamesStepDefinitions {
+    public GamesStepDefinitions(FeatureContext featureContext)
+    {
+        this._target = GameFactory.Create(featureContext.FeatureInfo.Title);
+    }
+}
+```
+
+Par exemple, il n'a suffi que de ces deux lignes dans la factory pour tester la classe `Mastermind` dans StepDefinitions :  
+```csharp
+case "Mastermind":
+    return new Mastermind();
+```
+
 
 ## III- Stratégie BDD et bonnes pratiques
 
