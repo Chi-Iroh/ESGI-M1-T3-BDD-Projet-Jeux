@@ -32,7 +32,7 @@ Les données de la table sont passées au jeu, qui sait comment les lire.
 ### B- Extensibilité
 
 L'interface `IGame` regroupe plusieurs fonctions basiques pour contrôler le déroulement d'un jeu tour par tour.  
-On peut ajouter un nouveau jeu similaire sans modifier les step definitions, et on écrira sees tests avec le même vocabulaire que les autres.  
+On peut ajouter un nouveau jeu similaire sans modifier les step definitions, et on écrira ses tests avec le même vocabulaire que les autres.  
 
 Pour ajouter un nouveau jeu, il suffit d'ajouter une entrée dans la factory `GameFactory`, qui construit le jeu selon le nom de la `Feature` Gherkin.  
 
@@ -71,9 +71,14 @@ Le choix a été fait d'éviter le vocabulaire spécifique pour simplifier l'ext
 
 ### B- Réutilisabilité
 
-Aucune step definition spécifique, pour les raisons énoncées au-dessus.  
+La grande majorité des stepDefinitions sont génériques, pour les raisons énoncées au-dessus.  
+Cependant, pour le MasterMind, la notion d'objectif à atteindre a été introduite.  
+Là où auparavant (morpion et fléchettes) il suffisait de gagner, ici on doit trouver une combinaison (l'objectif) pour finir le jeu (`given the goal is ...`).  
+Aussi, puisqu'il n'y véritablement qu'un joueur qui joue, un `then the game is finished` a été ajouté.  
+
+Les deux stepDefinitions spécifiques ne le sont même pas tellement, puisqu'un autre jeu sur le même modèle (jeu solo) les utiliserait aussi.  
 
 ### C- Maintenance
 
-Pour ajouter un jeu, il suffit de créer une nouvelle classe implémentant `IGame`, dee créer une entrée dans la factory `GameFactory`, puis d"ajouter un fichier de tests sur le même modèle que pour les autres jeux, et c'est tout.  
+Pour ajouter un jeu, il suffit de créer une nouvelle classe implémentant `IGame`, de créer une entrée dans la factory `GameFactory`, puis d'ajouter un fichier de tests sur le même modèle que pour les autres jeux, et c'est tout.  
 Donc facile à maintenir et à faire évoluer.  
