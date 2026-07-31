@@ -14,3 +14,17 @@ Scenario: Simple game
         | black blue blue yellow | 2 | 2 |
         | black blue yellow blue | 4 | 0 |
     And the game is finished
+
+Scenario: Initial state
+    Given the following game state
+        | Goal then tries |
+        | black blue yellow blue |
+        | black yellow orange orange |
+        | black blue blue yellow |
+        | black blue yellow blue |
+    Then the game state should be
+        | Tries | Good | Misplaced |
+        | black yellow orange orange | 1 | 1 |
+        | black blue blue yellow | 2 | 2 |
+        | black blue yellow blue | 4 | 0 |
+    And the game is finished

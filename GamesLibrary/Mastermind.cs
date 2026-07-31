@@ -32,14 +32,18 @@ namespace GamesBase {
         {
             var game = new Mastermind();
 
+            int i = 0;
             foreach (var row in state.content)
             {
-                game._attempts.Add(new Attempt
+                string rowstr = string.Join(" ", row);
+                if (i == 0)
                 {
-                    Guess = row[0],
-                    Good = int.Parse(row[1]),
-                    Misplaced = int.Parse(row[2])
-                });
+                    game.SetGoal(rowstr);
+                } else
+                {
+                    game.Play(rowstr);
+                }
+                i++;
             }
 
             return game;
@@ -50,19 +54,8 @@ namespace GamesBase {
             _player = player;
         }
 
-        public void Play(string move)
+        private (int, int) Matches(string[] guess)
         {
-            if (_finished)
-                throw new InvalidOperationException("Game already finished.");
-
-            if (_goal.Count == 0)
-                throw new InvalidOperationException("Goal has not been set.");
-
-            var guess = move.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
-            if (guess.Length != _goal.Count)
-                throw new ArgumentException("Invalid guess length.");
-
             int good = 0;
 
             var remainingGoal = new Dictionary<string, int>();
@@ -98,6 +91,23 @@ namespace GamesBase {
                 }
             }
 
+            return (good, misplaced);
+        }
+
+        public void Play(string move)
+        {
+            if (_finished)
+                throw new InvalidOperationException("Game already finished.");
+
+            if (_goal.Count == 0)
+                throw new InvalidOperationException("Goal has not been set.");
+
+            var guess = move.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            if (guess.Length != _goal.Count)
+                throw new ArgumentException("Invalid guess length.");
+
+            var (good, misplaced) = Matches(guess);
             _attempts.Add(new Attempt
             {
                 Guess = move,

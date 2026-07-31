@@ -117,7 +117,7 @@ namespace GamesBase.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Mastermind.feature.ndjson", 3);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Mastermind.feature.ndjson", 4);
         }
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Simple game")]
@@ -176,6 +176,66 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
     await testRunner.ThenAsync("the game state should be", ((string)(null)), table7, "Then ");
 #line hidden
 #line 16
+    await testRunner.AndAsync("the game is finished", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("Initial state")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Initial state")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Mastermind")]
+        public async global::System.Threading.Tasks.Task InitialState()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
+            string pickleIndex = "1";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Initial state", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string[] tagsOfRule = ((string[])(null));
+            global::Reqnroll.RuleInfo ruleInfo = null;
+#line 18
+this.ScenarioInitialize(scenarioInfo, ruleInfo);
+#line hidden
+            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                await testRunner.SkipScenarioAsync();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+                global::Reqnroll.Table table8 = new global::Reqnroll.Table(new string[] {
+                            "Goal then tries"});
+                table8.AddRow(new string[] {
+                            "black blue yellow blue"});
+                table8.AddRow(new string[] {
+                            "black yellow orange orange"});
+                table8.AddRow(new string[] {
+                            "black blue blue yellow"});
+                table8.AddRow(new string[] {
+                            "black blue yellow blue"});
+#line 19
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table8, "Given ");
+#line hidden
+                global::Reqnroll.Table table9 = new global::Reqnroll.Table(new string[] {
+                            "Tries",
+                            "Good",
+                            "Misplaced"});
+                table9.AddRow(new string[] {
+                            "black yellow orange orange",
+                            "1",
+                            "1"});
+                table9.AddRow(new string[] {
+                            "black blue blue yellow",
+                            "2",
+                            "2"});
+                table9.AddRow(new string[] {
+                            "black blue yellow blue",
+                            "4",
+                            "0"});
+#line 25
+    await testRunner.ThenAsync("the game state should be", ((string)(null)), table9, "Then ");
+#line hidden
+#line 30
     await testRunner.AndAsync("the game is finished", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
