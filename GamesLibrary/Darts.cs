@@ -190,5 +190,10 @@ namespace GamesLibrary
         {
             return _Winner()!;
         }
+
+        public void SetGoal(string goal)
+        {
+            throw new Exception("Cannot set goal for Darts !");
+        }
     }
 }

@@ -150,24 +150,24 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 8
     await testRunner.WhenAsync("the player plays at the top left", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-                global::Reqnroll.Table table7 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table8 = new global::Reqnroll.Table(new string[] {
                             "",
                             "",
                             ""});
-                table7.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "x",
                             "",
                             ""});
-                table7.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "",
                             "",
                             ""});
-                table7.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "",
                             "",
                             ""});
 #line 9
-    await testRunner.ThenAsync("the game state should be", ((string)(null)), table7, "Then ");
+    await testRunner.ThenAsync("the game state should be", ((string)(null)), table8, "Then ");
 #line hidden
 #line 14
     await testRunner.AndAsync("the game isn\'t finished yet", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -197,31 +197,6 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table8 = new global::Reqnroll.Table(new string[] {
-                            "",
-                            "",
-                            ""});
-                table8.AddRow(new string[] {
-                            "x",
-                            "x",
-                            "o"});
-                table8.AddRow(new string[] {
-                            "o",
-                            "o",
-                            "x"});
-                table8.AddRow(new string[] {
-                            "x",
-                            "o",
-                            ""});
-#line 17
-    await testRunner.GivenAsync("the following game state", ((string)(null)), table8, "Given ");
-#line hidden
-#line 22
-    await testRunner.AndAsync("x is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 23
-    await testRunner.WhenAsync("the player plays at the bottom right", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
                 global::Reqnroll.Table table9 = new global::Reqnroll.Table(new string[] {
                             "",
                             "",
@@ -237,9 +212,34 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
                 table9.AddRow(new string[] {
                             "x",
                             "o",
+                            ""});
+#line 17
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table9, "Given ");
+#line hidden
+#line 22
+    await testRunner.AndAsync("x is about to play", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 23
+    await testRunner.WhenAsync("the player plays at the bottom right", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+                global::Reqnroll.Table table10 = new global::Reqnroll.Table(new string[] {
+                            "",
+                            "",
+                            ""});
+                table10.AddRow(new string[] {
+                            "x",
+                            "x",
+                            "o"});
+                table10.AddRow(new string[] {
+                            "o",
+                            "o",
+                            "x"});
+                table10.AddRow(new string[] {
+                            "x",
+                            "o",
                             "x"});
 #line 24
-    await testRunner.ThenAsync("the game state should be", ((string)(null)), table9, "Then ");
+    await testRunner.ThenAsync("the game state should be", ((string)(null)), table10, "Then ");
 #line hidden
 #line 29
     await testRunner.AndAsync("it\'s a tie", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -269,24 +269,24 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table10 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table11 = new global::Reqnroll.Table(new string[] {
                             "",
                             "",
                             ""});
-                table10.AddRow(new string[] {
+                table11.AddRow(new string[] {
                             "x",
                             "o",
                             "o"});
-                table10.AddRow(new string[] {
+                table11.AddRow(new string[] {
                             "x",
                             "o",
                             ""});
-                table10.AddRow(new string[] {
+                table11.AddRow(new string[] {
                             "x",
                             "",
                             ""});
 #line 32
-    await testRunner.GivenAsync("the following game state", ((string)(null)), table10, "Given ");
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table11, "Given ");
 #line hidden
 #line 37
     await testRunner.ThenAsync("the winner should be x", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -316,24 +316,24 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table11 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table12 = new global::Reqnroll.Table(new string[] {
                             "",
                             "",
                             ""});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "x",
                             "",
                             ""});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "",
                             "",
                             ""});
-                table11.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "",
                             "",
                             ""});
 #line 40
-    await testRunner.GivenAsync("the following game state", ((string)(null)), table11, "Given ");
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table12, "Given ");
 #line hidden
 #line 45
     await testRunner.ThenAsync("the winner cannot be determined yet", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -363,24 +363,24 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-                global::Reqnroll.Table table12 = new global::Reqnroll.Table(new string[] {
+                global::Reqnroll.Table table13 = new global::Reqnroll.Table(new string[] {
                             "",
                             "",
                             ""});
-                table12.AddRow(new string[] {
+                table13.AddRow(new string[] {
                             "r",
                             "u",
                             ""});
-                table12.AddRow(new string[] {
+                table13.AddRow(new string[] {
                             "",
                             "",
                             ""});
-                table12.AddRow(new string[] {
+                table13.AddRow(new string[] {
                             "",
                             "145",
                             ""});
 #line 48
-    await testRunner.GivenAsync("the following game state", ((string)(null)), table12, "Given ");
+    await testRunner.GivenAsync("the following game state", ((string)(null)), table13, "Given ");
 #line hidden
 #line 53
     await testRunner.ThenAsync("the state is invalid", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");

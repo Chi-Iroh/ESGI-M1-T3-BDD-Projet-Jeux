@@ -57,6 +57,12 @@ namespace GamesBase.StepDefinitions
             }
         }
 
+        [Given("the goal is (.*)")]
+        void GivenGoal(string goal)
+        {
+            _target.SetGoal(goal);
+        }
+
         #endregion
 
         #region when
@@ -87,6 +93,12 @@ namespace GamesBase.StepDefinitions
         void ThenTheGameIsNotFinishedYet()
         {
             Assert.IsFalse(_target.Finished());
+        }
+
+        [Then("the game is finished")]
+        void ThenTheGameIsFinished()
+        {
+            Assert.IsTrue(_target.Finished());
         }
 
         [Then("it's a tie")]

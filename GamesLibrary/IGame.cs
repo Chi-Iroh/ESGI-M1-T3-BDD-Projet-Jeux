@@ -19,6 +19,7 @@ namespace GamesBase
         abstract IGame EmptyInit();
         abstract IGame InitFromState(GameState state);
         abstract void SetPlayer(string player);
+        abstract void SetGoal(string goal);
         abstract void Play(string move);
         abstract bool CompareStateWith(GameState state);
         abstract bool Finished();

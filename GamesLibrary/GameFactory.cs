@@ -14,6 +14,9 @@ namespace GamesLibrary
                 case "Darts":
                     return new Darts();
 
+                case "Mastermind":
+                    return new Mastermind();
+
                 default:
                     throw new Exception($"{type} game not implemented !");
             }
